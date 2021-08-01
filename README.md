@@ -1,4 +1,5 @@
-# msgserver - Simple pubsub push to browser messages node.js server/cient, based on Faye
+# msgserver
+Simple pubsub push to browser messages node.js server/cient, based on Faye
 
 # install
 git clone or download archive and run npm install

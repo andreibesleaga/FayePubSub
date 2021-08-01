@@ -1,0 +1,17 @@
+{
+  "name": "msgserver",
+  "version": "1.0.0",
+  "description": "Simple pubsub push to browser messages node server, based on Faye",
+  "author": "Andrei Besleaga",
+  "main": "server.js",
+  "license": "ISC",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "faye": "^1.4.0",
+    "nodemon": "^2.0.12"
+  }
+}

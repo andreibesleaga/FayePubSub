@@ -1,0 +1,38 @@
+<html>
+<head>
+    <script type="text/javascript" src="http://localhost:10000/messages/client.js"></script>
+</head>
+<body>
+
+<script>
+    // create client
+    var client = new Faye.Client('http://localhost:10000/messages');
+
+    // custom logger to show communications browser/server in console
+    Logger = {
+        incoming: function(message, callback) {
+            console.log('incoming', message);
+            callback(message);
+        },
+        outgoing: function(message, callback) {
+            console.log('outgoing', message);
+            callback(message);
+        }
+    };
+    client.addExtension(Logger);
+    client.logger = window.console;
+
+    // subscribe to messages server channel
+    client.subscribe('/messages', function(message) {
+            alert('Got a message: ' + message.text);
+    });    
+</script>
+
+<br />
+This is a test page for messages. Open console and open this page in other browsers.
+<br />
+<a href="#" onclick="client.publish('/messages', { text: 'Hello world' });">send a message</a>
+<br />
+
+</body>
+</html>
